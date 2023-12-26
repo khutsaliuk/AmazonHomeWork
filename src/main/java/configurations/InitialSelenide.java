@@ -27,9 +27,6 @@ public class InitialSelenide {
         Configuration.timeout = 10000;
         Configuration.pageLoadTimeout = 10000;
         Configuration.browserCapabilities.setCapability("chrome.switches", "--user-agent=" + currentUserAgent);
-    }
-
 
     }
-
-}
+    }
