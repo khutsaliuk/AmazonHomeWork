@@ -11,11 +11,11 @@ public interface IHeader {
     SelenideElement signInBtn = $(byXpath("(//span[@class='nav-action-inner'])[1]"));
     SelenideElement helloUsernameBtn = $(byXpath("//span[text()='Hello, Konstantyn']"));
 
-    default void openSignInDropDownMenu() {
+    default void IopenSignInDropDownMenu() {
         signInDropDownMenu.hover();
     }
 
-    default SignInPage clickSignInBtn() {
+    default SignInPage IclickSignInBtn() {
         signInBtn.click();
         return page(SignInPage.class);
     }

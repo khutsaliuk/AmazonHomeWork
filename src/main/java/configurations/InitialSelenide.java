@@ -1,9 +1,12 @@
 package configurations;
 
 import com.codeborne.selenide.Configuration;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 
 public class InitialSelenide {
+
+    private ChromeOptions chromeOptions = new ChromeOptions();
 
     private static final String[] USER_AGENTS = {
             "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 OPR/65.0.3467.48",
@@ -26,7 +29,7 @@ public class InitialSelenide {
         Configuration.browserPosition = "0x0";
         Configuration.timeout = 10000;
         Configuration.pageLoadTimeout = 10000;
-        Configuration.browserCapabilities.setCapability("chrome.switches", "--user-agent=" + currentUserAgent);
-
+        //Configuration.browserCapabilities.setCapability("chrome.switches", "--user-agent=" + currentUserAgent);
+        Configuration.browserCapabilities = chromeOptions.addArguments("user-agent=" + currentUserAgent);
     }
     }
