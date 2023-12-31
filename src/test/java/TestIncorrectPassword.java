@@ -14,6 +14,7 @@ public class TestIncorrectPassword extends InitialSelenide {
     @Test
     public void testIncorrectPass() {
         open(URL);
+        changeCookie();
         new MainPage()
                 .clickOnSignIn()
                 .typeEmail(EMAIL)

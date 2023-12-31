@@ -13,6 +13,7 @@ public class TestSuccessLogin extends InitialSelenide {
     @Test
     public void testSuccessLogin() {
         open(URL);
+        changeCookie();
         new MainPage()
                 .clickOnSignIn()
                 .typeEmail(EMAIL)

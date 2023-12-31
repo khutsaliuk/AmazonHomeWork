@@ -12,6 +12,7 @@ public class TestEmptyEmail extends InitialSelenide {
     @Test
     public void testEmptyEmail() {
         open(URL);
+        changeCookie();
         new MainPage()
                 .clickOnSignIn().typeEmail(EMPTY_FIELD).
                 clickOnContinueBtnWithIncorrectEmail()
