@@ -1,8 +1,11 @@
 package configurations;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -10,9 +13,9 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class InitialSelenide {
 
     private ChromeOptions chromeOptions = new ChromeOptions();
-    public final String AMZ_CAPTCHA1 = "1704051878534435";
-    public final String AMZ_CAPTCHA2 = "Re7IpaUkuFaaQKffoEX59A==";
-    public final String CSM_HIT = "tb:AYDXFVKTFBJFWRHX5S90+s-AYDXFVKTFBJFWRHX5S90|1704044730190&t:1704044730190&adb:adblk_no";
+    public final String AMZ_CAPTCHA1 = "1704052221931028";
+    public final String AMZ_CAPTCHA2 = "obzwjF0IFn2C2aDgTSo7Aw==";
+    public final String CSM_HIT = "tb:SAQF7JKJ2KB6KZK4Y9P4+s-CE2EZPXVPWA1REVC418M|1704045092582&t:1704045092582&adb:adblk_no";
     public final String CP_CDN = "\"L5Z9:UA\"";
 
     private static final String[] USER_AGENTS = {
@@ -37,6 +40,11 @@ public class InitialSelenide {
         Configuration.timeout = 10000;
         Configuration.pageLoadTimeout = 10000;
         Configuration.browserCapabilities = chromeOptions.addArguments("user-agent=" + currentUserAgent);
+    }
+
+    @AfterTest
+    public void closeDriver() {
+        Selenide.closeWebDriver();
     }
     public void changeCookie() {
         Cookie cookie = new Cookie("x-amz-captcha-1", AMZ_CAPTCHA1);
