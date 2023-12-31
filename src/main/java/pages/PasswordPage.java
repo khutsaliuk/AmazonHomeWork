@@ -16,9 +16,9 @@ public class PasswordPage extends PasswordPageLocators {
     }
 
     @Step("Click on the Sign In button with false password")
-    public PasswordPage clickSignInBtnWithInCorrectPass() {
+    public CaptchaPage clickSignInBtnWithInCorrectPass() {
         signInBtn.click();
-        return this;
+        return page(CaptchaPage.class);
     }
 
     @Step("Click on the Sign In button with true password")
@@ -26,12 +26,4 @@ public class PasswordPage extends PasswordPageLocators {
         signInBtn.click();
         return page(MainPage.class);
     }
-
-    @Step("Check message in the alert block")
-    public PasswordPage checkIncorrectPasswordMessageAlert(String expectedMessage) {
-        String actualMessage = alertMessage.shouldBe(Condition.visible, Duration.ofSeconds(5)).getText();
-        Assert.assertEquals(actualMessage, expectedMessage);
-        return this;
-    }
-
 }
