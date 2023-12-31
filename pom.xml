@@ -27,8 +27,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <!--<suiteXmlFile>${basedir}${TEST_SUITE}.xml</suiteXmlFile>-->
-                        ${basedir}/src/test/java/suite/PositiveSuite.xml
+                        ${basedir}/src/test/java/suite/AuthorisationSuite.xml
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

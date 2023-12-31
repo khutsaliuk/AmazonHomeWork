@@ -16,6 +16,7 @@ public class InitialSelenide {
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:70.0) Gecko/20100101 Firefox/70.0",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
     };
+
     private String getRandomUserAgent() {
         int randomIndex = (int) (Math.random() * USER_AGENTS.length);
         return USER_AGENTS[randomIndex];
@@ -29,7 +30,6 @@ public class InitialSelenide {
         Configuration.browserPosition = "0x0";
         Configuration.timeout = 10000;
         Configuration.pageLoadTimeout = 10000;
-        //Configuration.browserCapabilities.setCapability("chrome.switches", "--user-agent=" + currentUserAgent);
         Configuration.browserCapabilities = chromeOptions.addArguments("user-agent=" + currentUserAgent);
     }
-    }
+}

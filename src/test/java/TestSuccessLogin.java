@@ -5,11 +5,20 @@ import pages.MainPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestSuccessLogin extends InitialSelenide {
-/*    @Test
-    public void testSuccessLogin(){
-        open("https://www.amazon.com/");
-     new MainPage().clickOnSignIn().typeEmail("+380950613365").clickOnContinueBtn().
-             typePassword("123456").clickSignInBtn();
-    }*/
+    private String URL = "https://www.amazon.com/";
+    private String EXPECTED_GREETING = "Hello, Konstantyn";
+    private String CORRECT_PASS = "123456";
+    private String EMAIL = "paskasomka@gmail.com";
+
+    @Test
+    public void testSuccessLogin() {
+        open(URL);
+        new MainPage()
+                .clickOnSignIn()
+                .typeEmail(EMAIL)
+                .clickOnContinueBtnWithCorrectEmail()
+                .typePassword(CORRECT_PASS)
+                .clickSignInBtnWithCorrectPass()
+                .IcheckGreeting(EXPECTED_GREETING);
+    }
 }
-//42eb6abf0f1e4daaa0ab0a7dc6ff407f
