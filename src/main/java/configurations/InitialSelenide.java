@@ -25,7 +25,6 @@ public class InitialSelenide {
     @BeforeTest
     public void before() {
         String currentUserAgent = getRandomUserAgent();
-        System.out.println(currentUserAgent);
         Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
         Configuration.timeout = 10000;
